@@ -24,12 +24,43 @@
 
 </ActionBar>
 
-<StackLayout>
-    <SearchBar hint="Buscar arquivos ou pastas"
-        [text]="searchPhrase" (textChange)="onTextChanged($event)" 
-        (clear)="onClear($event)" (submit)="onSubmit($event)">
-    </SearchBar>
-</StackLayout>
+<ScrollView >
+    <StackLayout style="width: 100%; bottom:0;">
+        <SearchBar hint="Buscar arquivos ou pastas"
+            [text]="searchPhrase" (textChange)="onTextChanged($event)" 
+            (clear)="onClear($event)" (submit)="onSubmit($event)">
+        </SearchBar>
+
+        <Label text="HOME / ... / FOLDER" style="margin: 20px; margin-left: 40px; font-size:15px"></Label>
+
+        <!-- <Image src="https://icon-library.net/images/brand-icon-png/brand-icon-png-2.jpg"></Image> -->
+        <ListView [items]="countries" style="height:1310px">
+            <ng-template let-country="item">
+                <FlexboxLayout flexDirection="row">
+                    <Image [src]="country.imageSrc" style="width: 10%;"></Image>
+                    <FlexboxLayout flexDirection="column" style="margin-left: 30px">
+                            <Label [text]="country.name" class="t-12"
+                                verticalAlignment="center" style="width: 30%"></Label>
+                                
+                            <Label [text]="country.name"
+                            verticalAlignment="center" style="color: #499ccf; width: 30%"></Label>
+                    </FlexboxLayout>
+                </FlexboxLayout>
+            </ng-template>
+        </ListView>
+
+
+        <AbsoluteLayout>
+                <SegmentedBar style="width: 100%; top:0" [items]="segmentedBarItems" [(ngModel)]="selectedBarIndex">
+                </SegmentedBar>
+        </AbsoluteLayout>
+
+
+
+    </StackLayout>
+</ScrollView>
+    
+
 
     
 
