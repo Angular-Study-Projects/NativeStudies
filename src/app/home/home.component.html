@@ -38,7 +38,7 @@
         </FlexboxLayout>
 
         <!-- <Image src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png"></Image> -->
-        <ListView [items]="countries" style="height:1150px">
+        <ListView [items]="countries" style="height:1190px">
             <ng-template let-country="item">
                 <FlexboxLayout flexDirection="row">
                     <Image [src]="country.imageSrc" style="width: 75px;"></Image>
@@ -54,16 +54,29 @@
         </ListView>
 
 
-        <GridLayout columns="*,*,*" rows="*,*" width="100%" height="200px" row="1" backgroundColor="lightgray">
+        <GridLayout borderTopWidth="2px" borderTopColor="black" columns="*,*,*" rows="*" width="100%" height="160px" row="1" backgroundColor="#f2f4f6">
 
-            <Image src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" row="0" col="0" class="fa" width="50px" textAlignment="center" style="margin-top: 20px"></Image>
-            <Label text="MINHAS PASTAS" textTransform="uppercase" row="1" col="0" width="10%" textAlignment="center" textWrap="true" style="font-size: 10px;"></Label>
+            <StackLayout row="0" column="0" width="100%">
+                    <Image src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" class="fa" width="50px" textAlignment="center" style="margin-top: 20px"></Image>
+                    <Label text="MINHAS PASTAS" textTransform="uppercase" width="30%" textAlignment="center" textWrap="true" style="font-size: 10px; font-weight: bold; color: #264cc7"></Label>
+            </StackLayout>
 
-            <Image src="https://cdn1.iconfinder.com/data/icons/essentials-blue-tone-1/100/Essentials_share_link-512.png" row="0" col="1" class="fa" width="50px" textAlignment="center" style="margin-top: 20px"></Image>
-            <Label text="compartilhar essa pasta" textTransform="uppercase" row="1" col="1" width="20%" textAlignment="center" textWrap="true" style="font-size: 10px;"></Label>
+            <StackLayout row="0" column="1" width="100%">
+                    <Image src="https://cdn1.iconfinder.com/data/icons/essentials-blue-tone-1/100/Essentials_share_link-512.png" class="fa" width="50px" textAlignment="center" style="margin-top: 20px"></Image>
+                    <Label text="compartilhar essa pasta" textTransform="uppercase" width="70%" textAlignment="center" textWrap="true" style="font-size: 10px; font-weight: bold; color: #264cc7"></Label>
+            </StackLayout>
 
-            <Image src="https://cdn.pixabay.com/photo/2017/03/19/03/51/material-icon-2155448_960_720.png" row="0" col="2" class="fa" width="120px" textAlignment="center" style="margin-top: 20px"></Image>
-            <Label text="adicionar pasta" textTransform="uppercase" row="1" col="2" width="15%" textAlignment="center" textWrap="true" style="font-size: 10px;"></Label>
+            <StackLayout row="0" column="2" width="100%">
+                    <Image src="https://cdn.pixabay.com/photo/2017/03/19/03/51/material-icon-2155448_960_720.png" class="fa" width="120px" textAlignment="center" style="margin-top: 20px"></Image>
+                    <Label text="adicionar pasta" textTransform="uppercase" width="40%" textAlignment="center" textWrap="true" style="font-size: 10px; font-weight: bold; color: #264cc7"></Label>
+            </StackLayout>
+            
+
+            <!-- <Image src="https://cdn1.iconfinder.com/data/icons/essentials-blue-tone-1/100/Essentials_share_link-512.png" row="0" col="1" class="fa" width="50px" textAlignment="center"></Image>
+            <Label text="compartilhar essa pasta" textTransform="uppercase" row="1" col="1" width="20%" textAlignment="center" textWrap="true" style="font-size: 10px; margin-bottom: 10px; font-weight: bold; color: #264cc7"></Label>
+
+            <Image src="https://cdn.pixabay.com/photo/2017/03/19/03/51/material-icon-2155448_960_720.png" row="0" col="2" class="fa" width="120px" textAlignment="center"></Image>
+            <Label text="adicionar pasta" textTransform="uppercase" row="1" col="2" width="15%" textAlignment="center" textWrap="true" style="font-size: 10px; margin-bottom: 10px; font-weight: bold; color: #264cc7"></Label> -->
 
         
         </GridLayout>
