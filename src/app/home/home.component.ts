@@ -1,12 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
-import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
-import { ItemEventData, ListView } from "tns-core-modules/ui/list-view/list-view";
+import { SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
 import { SearchBar } from "tns-core-modules/ui/search-bar";
 
-import { EventData, fromObject } from "tns-core-modules/data/observable";
-import { Page } from "tns-core-modules/ui/page";
 
 
 @Component({
@@ -20,34 +17,33 @@ export class HomeComponent implements OnInit {
         // Use the component constructor to inject providers.
     }
 
-    countries: { name: string, imageSrc: string }[] = [
-        { name: "Australia", imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
-        { name: "Belgium", imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
-        { name: "Bulgaria", imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
-        { name: "Canada", imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
-        { name: "Switzerland", imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
-        { name: "China", imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
-        { name: "Czech Republic", imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
-        { name: "Germany", imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
-        { name: "Spain", imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
-        { name: "Ethiopia", imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
-        { name: "Croatia", imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
-        { name: "Hungary", imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
-        { name: "Italy", imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
-        { name: "Jamaica", imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
-        { name: "Romania", imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
-        { name: "Russia", imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
-        { name: "United States", imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
+    countries: { name: string, date: string ,imageSrc: string }[] = [
+        { name: this.pickFolderName((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), date: this.pickFolderChangeDate((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
+        { name: this.pickFolderName((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), date: this.pickFolderChangeDate((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
+        { name: this.pickFolderName((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), date: this.pickFolderChangeDate((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
+        { name: this.pickFolderName((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), date: this.pickFolderChangeDate((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
+        { name: this.pickFolderName((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), date: this.pickFolderChangeDate((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
+        { name: this.pickFolderName((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), date: this.pickFolderChangeDate((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
+        { name: this.pickFolderName((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), date: this.pickFolderChangeDate((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
+        { name: this.pickFolderName((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), date: this.pickFolderChangeDate((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
+        { name: this.pickFolderName((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), date: this.pickFolderChangeDate((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
+        { name: this.pickFolderName((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), date: this.pickFolderChangeDate((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
+        { name: this.pickFolderName((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), date: this.pickFolderChangeDate((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
+        { name: this.pickFolderName((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), date: this.pickFolderChangeDate((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
+        { name: this.pickFolderName((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), date: this.pickFolderChangeDate((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
+        { name: this.pickFolderName((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), date: this.pickFolderChangeDate((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
+        { name: this.pickFolderName((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), date: this.pickFolderChangeDate((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
+        { name: this.pickFolderName((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), date: this.pickFolderChangeDate((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
+        { name: this.pickFolderName((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), date: this.pickFolderChangeDate((Math.floor(Math.random() * (10 - 0 + 1)) + 0)), imageSrc: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" },
     ];
 
     private getSegmentedBarItems = () => {
         let segmentedBarItem1 = new SegmentedBarItem();
-        segmentedBarItem1.title = "Item 1";
+        segmentedBarItem1.title = "MINHAS PASTAS";
         let segmentedBarItem2 = new SegmentedBarItem();
-        segmentedBarItem2.title = "Item 2";
+        segmentedBarItem2.title = "COMPARTILHAR ESSA PASTA";
         let segmentedBarItem3 = new SegmentedBarItem();
-        segmentedBarItem3.title = "Item 3";
-        // segmentedBarItem3.row
+        segmentedBarItem3.title = "ADICIONAR PASTA";
 
         return [segmentedBarItem1, segmentedBarItem2, segmentedBarItem3];
     }
@@ -91,5 +87,73 @@ export class HomeComponent implements OnInit {
         const searchBar = args.object as SearchBar;
         console.log(`Clear event raised`);
     }
+
+
+    pickFolderName(number: number): string {
+        switch(number) {
+          case 1:
+            return 'Alagoas';
+          break;
+          case 2:
+            return 'Maranhao';
+          break;
+          case 3:
+            return 'nomeextremamentegrandeparatestararquivosabsurdosqueousuariopodetalvezcolocarpqsimneh';
+          break;
+          case 4:
+            return 'Mossoro';
+          break;
+          case 5:
+            return 'Florianopolis';
+          break;
+          case 6:
+            return 'Pesquisas';
+          break;
+          case 7:
+            return 'UFRN';
+          break;
+          case 8:
+            return 'Saidinhas';
+          break;
+          case 9:
+            return 'BotaDentroUFRN';
+          break;
+          case 10:
+            return 'BotaForaUFRN';
+          break;
+          default: 
+            return 'Just Folder With A Big A** Name To Test';
+          break;
+        }
+      }
+
+      pickFolderChangeDate(number: number): string {
+        switch(number) {
+          case 1:
+            return 'Nov 12, 2018, 11:18:55 AM';
+          break;
+          case 2:
+            return 'Nov 6, 2019, 00:18:55 AM';
+          break;
+          case 3:
+            return 'Oct 6, 2019, 11:18:55 AM';
+          break;
+          case 4:
+            return 'Set 26, 2019, 6:50:55 AM';
+          break;
+          case 5:
+            return 'Jan 16, 2019, 12:48:55 AM';
+          break;
+          case 6:
+            return 'Nov 25, 2019, 11:38:55 AM';
+          break;
+          case 7:
+            return 'Nov 1, 2019, 1:18:55 AM';
+          break;
+          default: 
+            return 'Nov 30, 2019, 21:18:55 AM';
+          break;
+        }
+      }
 
 }

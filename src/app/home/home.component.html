@@ -31,30 +31,42 @@
             (clear)="onClear($event)" (submit)="onSubmit($event)">
         </SearchBar>
 
-        <Label text="HOME / ... / FOLDER" style="margin: 20px; margin-left: 40px; font-size:15px"></Label>
+        <FlexboxLayout>
+                <Label text="HOME / " style="margin: 20px 0; margin-left: 40px; font-size:15px"></Label>
+                <Label text=" ...  / " style="margin: 20px 0; font-size:15px"></Label>
+                <Label text=" FOLDER" style="margin: 20px 0; font-size:15px"></Label>
+        </FlexboxLayout>
 
-        <!-- <Image src="https://icon-library.net/images/brand-icon-png/brand-icon-png-2.jpg"></Image> -->
-        <ListView [items]="countries" style="height:1310px">
+        <!-- <Image src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png"></Image> -->
+        <ListView [items]="countries" style="height:1150px">
             <ng-template let-country="item">
                 <FlexboxLayout flexDirection="row">
-                    <Image [src]="country.imageSrc" style="width: 10%;"></Image>
+                    <Image [src]="country.imageSrc" style="width: 75px;"></Image>
                     <FlexboxLayout flexDirection="column" style="margin-left: 30px">
                             <Label [text]="country.name" class="t-12"
                                 verticalAlignment="center" style="width: 30%"></Label>
                                 
-                            <Label [text]="country.name"
-                            verticalAlignment="center" style="color: #499ccf; width: 30%"></Label>
+                            <Label [text]="country.date"
+                            verticalAlignment="center" style="color: #499ccf; width: 50%"></Label>
                     </FlexboxLayout>
                 </FlexboxLayout>
             </ng-template>
         </ListView>
 
 
-        <AbsoluteLayout>
-                <SegmentedBar style="width: 100%; top:0" [items]="segmentedBarItems" [(ngModel)]="selectedBarIndex">
-                </SegmentedBar>
-        </AbsoluteLayout>
+        <GridLayout columns="*,*,*" rows="*,*" width="100%" height="200px" row="1" backgroundColor="lightgray">
 
+            <Image src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" row="0" col="0" class="fa" width="50px" textAlignment="center" style="margin-top: 20px"></Image>
+            <Label text="MINHAS PASTAS" textTransform="uppercase" row="1" col="0" width="10%" textAlignment="center" textWrap="true" style="font-size: 10px;"></Label>
+
+            <Image src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" row="0" col="1" class="fa" width="50px" textAlignment="center" style="margin-top: 20px"></Image>
+            <Label text="compartilhar essa pasta" textTransform="uppercase" row="1" col="1" width="20%" textAlignment="center" textWrap="true" style="font-size: 10px;"></Label>
+
+            <Image src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" row="0" col="2" class="fa" width="50px" textAlignment="center" style="margin-top: 20px"></Image>
+            <Label text="adicionar pasta" textTransform="uppercase" row="1" col="2" width="15%" textAlignment="center" textWrap="true" style="font-size: 10px;"></Label>
+
+        
+        </GridLayout>
 
 
     </StackLayout>
