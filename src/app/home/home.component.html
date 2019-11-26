@@ -1,0 +1,40 @@
+<ActionBar style="background-color: #293a62">
+
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+
+    <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+
+    <!-- <StackLayout orientation="horizontal"
+        ios:horizontalAlignment="center"
+        android:horizontalAlignment="left">
+        <Label text="NativeScript" class="action-label"></Label>
+    </StackLayout>
+
+    <ActionItem ios.position="right" text="">
+        <FlexboxLayout>
+            <Label text="Username" class="action-label"></Label>
+        </FlexboxLayout>
+    </ActionItem> -->
+
+    <ActionItem tap="onDelete"
+      ios.systemIcon="16" ios.position="right"
+      text="Settings" android.position="popup"></ActionItem>
+
+</ActionBar>
+
+<StackLayout>
+    <SearchBar hint="Buscar arquivos ou pastas"
+        [text]="searchPhrase" (textChange)="onTextChanged($event)" 
+        (clear)="onClear($event)" (submit)="onSubmit($event)">
+    </SearchBar>
+</StackLayout>
+
+    
+
+
+
+
+
+
