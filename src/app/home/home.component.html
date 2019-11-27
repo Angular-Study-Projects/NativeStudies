@@ -6,7 +6,7 @@
         ios.position="left">
     </ActionItem>
 
-    <!-- <StackLayout orientation="horizontal"
+    <StackLayout orientation="horizontal"
         ios:horizontalAlignment="center"
         android:horizontalAlignment="left">
         <Label text="NativeScript" class="action-label"></Label>
@@ -16,7 +16,7 @@
         <FlexboxLayout>
             <Label text="Username" class="action-label"></Label>
         </FlexboxLayout>
-    </ActionItem> -->
+    </ActionItem>
 
     <ActionItem tap="onDelete"
       ios.systemIcon="16" ios.position="right"
@@ -24,21 +24,21 @@
 
 </ActionBar>
 
-<ScrollView >
-    <StackLayout style="width: 100%; bottom:0;">
-        <SearchBar hint="Buscar arquivos ou pastas"
+
+<GridLayout rows="*, auto" style="width: 100%; bottom:0;">
+    <StackLayout row="0">
+        <SearchBar  hint="Buscar arquivos ou pastas"
             [text]="searchPhrase" (textChange)="onTextChanged($event)" 
             (clear)="onClear($event)" (submit)="onSubmit($event)">
         </SearchBar>
-
+        
         <FlexboxLayout>
                 <Label text="HOME / " style="margin: 20px 0; margin-left: 40px; font-size:15px"></Label>
                 <Label text=" ...  / " style="margin: 20px 0; font-size:15px"></Label>
                 <Label text=" FOLDER" style="margin: 20px 0; font-size:15px"></Label>
         </FlexboxLayout>
 
-        <!-- <Image src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png"></Image> -->
-        <ListView [items]="countries" style="height:1190px">
+        <ListView [items]="countries">
             <ng-template let-country="item">
                 <FlexboxLayout flexDirection="row">
                     <Image [src]="country.imageSrc" style="width: 75px;"></Image>
@@ -52,45 +52,32 @@
                 </FlexboxLayout>
             </ng-template>
         </ListView>
-
-
-        <GridLayout borderTopWidth="2px" borderTopColor="black" columns="*,*,*" rows="*" width="100%" height="160px" row="1" backgroundColor="#f2f4f6">
-
-            <StackLayout row="0" column="0" width="100%">
-                    <Image src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png" width="50px" textAlignment="center" style="margin-top: 20px"></Image>
-                    <Label text="MINHAS PASTAS" textTransform="uppercase" width="30%" textAlignment="center" textWrap="true" style="font-size: 10px; font-weight: bold; color: #264cc7"></Label>
-            </StackLayout>
-
-            <StackLayout row="0" column="1" width="100%">
-                    <Image src="https://cdn1.iconfinder.com/data/icons/essentials-blue-tone-1/100/Essentials_share_link-512.png" width="50px" textAlignment="center" style="margin-top: 20px"></Image>
-                    <Label text="compartilhar essa pasta" textTransform="uppercase" width="70%" textAlignment="center" textWrap="true" style="font-size: 10px; font-weight: bold; color: #264cc7"></Label>
-            </StackLayout>
-
-            <StackLayout row="0" column="2" width="100%">
-                    <Image src="https://cdn.pixabay.com/photo/2017/03/19/03/51/material-icon-2155448_960_720.png" width="120px" textAlignment="center" style="margin-top: 20px"></Image>
-                    <Label text="adicionar pasta" textTransform="uppercase" width="40%" textAlignment="center" textWrap="true" style="font-size: 10px; font-weight: bold; color: #264cc7"></Label>
-            </StackLayout>
-            
-
-            <!-- <Image src="https://cdn1.iconfinder.com/data/icons/essentials-blue-tone-1/100/Essentials_share_link-512.png" row="0" col="1" class="fa" width="50px" textAlignment="center"></Image>
-            <Label text="compartilhar essa pasta" textTransform="uppercase" row="1" col="1" width="20%" textAlignment="center" textWrap="true" style="font-size: 10px; margin-bottom: 10px; font-weight: bold; color: #264cc7"></Label>
-
-            <Image src="https://cdn.pixabay.com/photo/2017/03/19/03/51/material-icon-2155448_960_720.png" row="0" col="2" class="fa" width="120px" textAlignment="center"></Image>
-            <Label text="adicionar pasta" textTransform="uppercase" row="1" col="2" width="15%" textAlignment="center" textWrap="true" style="font-size: 10px; margin-bottom: 10px; font-weight: bold; color: #264cc7"></Label> -->
-
-        
-        </GridLayout>
-
-
     </StackLayout>
-</ScrollView>
-    
-
 
     
+    
+
+    <GridLayout row="1" borderTopWidth="2px" borderTopColor="black" columns="*,*,*" rows="*" width="100%" height="160px" row="1" backgroundColor="#f2f4f6">
+
+        <StackLayout row="0" column="0" width="100%">
+                <Image src="res://folder" width="50px" textAlignment="center" style="margin-top: 20px"></Image>
+                <Label text="MINHAS PASTAS" textTransform="uppercase" width="30%" textAlignment="center" textWrap="true" style="font-size: 10px; font-weight: bold; color: #264cc7"></Label>
+        </StackLayout>
+
+        <StackLayout row="0" column="1" width="100%">
+                <Image src="res://share" width="50px" textAlignment="center" style="margin-top: 20px"></Image>
+                <Label text="compartilhar essa pasta" textTransform="uppercase" width="70%" textAlignment="center" textWrap="true" style="font-size: 10px; font-weight: bold; color: #264cc7"></Label>
+        </StackLayout>
+
+        <StackLayout row="0" column="2" width="100%">
+                <Image src="res://add" width="120px" textAlignment="center" style="margin-top: 20px"></Image>
+                <Label text="adicionar pasta" textTransform="uppercase" width="40%" textAlignment="center" textWrap="true" style="font-size: 10px; font-weight: bold; color: #264cc7"></Label>
+        </StackLayout>
+
+    
+    </GridLayout>
 
 
-
-
+</GridLayout>
 
 
